@@ -4,25 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Midi Generator</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            background-color: #9ccdff;
+            margin: 0;
+            padding: 0;
+            display: block;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .control-panel {
+            background-color: rgb(25, 179, 240);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 10px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        select {
+            width: 100%;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        
+        button {
+            padding: 5px 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 1px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .notification {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: none;
+        }
+    </style>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>Wellcome to Midi Generator</h1>
-    <select id="note-selector">
-        <option value="261.63">C4</option>
-        <option value="277.18">C#4/Db4</option>
-        <option value="293.66">D4</option>
-        <option value="311.13">D#4/Eb4</option>
-        <option value="329.63">E4</option>
-        <option value="349.23">F4</option>
-        <option value="369.99">F#4/Gb4</option>
-        <option value="392.00">G4</option>
-        <option value="415.30">G#4/Ab4</option>
-        <option value="440.00">A4</option>
-        <option value="466.16">A#4/Bb4</option>
-        <option value="493.88">B4</option>
-    </select>
-    <button id="generate-button">Generate</button>
-    <script src="script.js"></script>
-
+    <h1>Welcome to MIDI Generator</h1>
+    
+    <div class="control-panel">
+        <div class="form-group">
+            <label for="key-selector">Select Key:</label>
+            <select id="key-selector">
+                <option value="C">C</option>
+                <option value="C#">C#</option>
+                <option value="D">D</option>
+                <option value="D#">D#</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="F#">F#</option>
+                <option value="G">G</option>
+                <option value="G#">G#</option>
+                <option value="A">A</option>
+                <option value="A#">A#</option>
+                <option value="B">B</option>
+            </select>
+        </div>
+        
+        <div class="form-group" style="display: flex; justify-content: center;">
+            <label for="scale-selector">Select Scale:</label>
+            <select id="scale-selector">
+                <option value="major">Major</option>
+                <option value="minor">Minor</option>
+            </select>
+        </div>
+        
+        <div class="button-container">
+            <button id="play-scale-button">Play Scale</button>
+            <button id="generate-melody-button">Generate Melody</button>
+            <button id="play-melody-button">Play Melody</button>
+            <button id="download-midi-button">Download</button>
+        </div>
+    </div>
+    
+    <div class="notification" id="notification">Melody Successfully Generated!</div>
 </body>
 </html>
